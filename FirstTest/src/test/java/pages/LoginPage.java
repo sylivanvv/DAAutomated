@@ -19,7 +19,7 @@ public class LoginPage {
     private WebElement submitButton;
 
     @FindBy(css = "ul.navbar-nav")
-    private WebElement user_nav;
+    private WebElement userNav;
 
     @FindBy(linkText = "Forgot Your Password?")
     private WebElement resetPasswordLink;
@@ -29,7 +29,7 @@ public class LoginPage {
         this.driver = driver;
     }
     public WebElement getUserNav(){
-        return this.user_nav;
+        return this.userNav;
     }
 
     public MainPage login(String email, String password){

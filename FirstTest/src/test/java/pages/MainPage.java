@@ -12,48 +12,48 @@ public class MainPage {
 
 
     @FindBy(css = "ul[class='navbar-nav']")
-    private WebElement user_nav;
+    private WebElement userNav;
 
     @FindBy(linkText = "My Profile")
-    private WebElement my_profile_link;
+    private WebElement myProfileLink;
 
     @FindBy(linkText = "My lectures")
-    private WebElement my_lectures_link;
+    private WebElement myLecturesLink;
 
     @FindBy(linkText = "My Tech Interviews")
-    private WebElement my_tech_int_link;
+    private WebElement myTechIntLink;
 
     @FindBy(linkText = "My Eng Interviews")
-    private WebElement my_eng_int_link;
+    private WebElement myEngIntLink;
 
     @FindBy(xpath = "/html/body/app-root/div/app-events/div/app-event[2]/div")
-    private WebElement event_details_link;
+    private WebElement eventDetailsLink;
 
     public MainPage clickUserMenu(){
-        user_nav.click();
+        userNav.click();
         return new MainPage(driver);
     }
     public LecturesPage clickMyLectures(){
-        my_lectures_link.click();
+        myLecturesLink.click();
         return new LecturesPage(driver);
     }
 
     public EngInterviewsPage clickMyEngInt(){
-        my_eng_int_link.click();
+        myEngIntLink.click();
         return new EngInterviewsPage(driver);
     }
 
     public TechInterviewsPage clickMyTechInt(){
-        my_tech_int_link.click();
+        myTechIntLink.click();
         return new TechInterviewsPage(driver);
     }
     public EventsPage clickEventDetails(){
-        event_details_link.click();
+        eventDetailsLink.click();
         return new EventsPage(driver);
     }
 
     public MyProfilePage clickMyProfile(){
-        my_profile_link.click();
+        myProfileLink.click();
         return new MyProfilePage(driver);
     }
 
