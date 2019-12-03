@@ -3,15 +3,13 @@ package tests;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.EngInterviewsPage;
 import pages.LoginPage;
 
-import java.nio.file.Path;
-import java.util.Iterator;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class LectureEngIntCVDownloadTest {
@@ -31,11 +29,17 @@ public class LectureEngIntCVDownloadTest {
         String MainWindow=driver.getWindowHandle();
         engInterviewsPage = new EngInterviewsPage(driver);
     }
+
     @DataProvider
     public Object[][] englishCVData() {
         return new Object[][] {
                 new Object[] {"lectureranton@mailinator.com", "QASchool2019!"}
         };
+    }
+
+    @AfterClass
+    public void tearDown(){
+        driver.quit();
     }
 
     @Test(dataProvider = "englishCVData")

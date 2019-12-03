@@ -3,20 +3,17 @@ package tests;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.TechInterviewsPage;
-import pages.LecturesPage;
 import pages.LoginPage;
-import pages.MainPage;
 
 import java.util.concurrent.TimeUnit;
 
 public class LecturerWriteFeedBackTest {
     private LoginPage loginPage;
-    private MainPage mainPage;
-    private LecturesPage lecturesPage;
     private TechInterviewsPage techInterviewsPage;
     private WebDriver driver;
 
@@ -37,6 +34,11 @@ public class LecturerWriteFeedBackTest {
         return new Object[][] {
                 new Object[] {"Hello, I am a robot!", "lectureranton@mailinator.com", "QASchool2019!"}
         };
+    }
+
+    @AfterClass
+    public void tearDown(){
+        driver.quit();
     }
 
     @Test(dataProvider = "putFeedback")

@@ -1,11 +1,8 @@
 package pages;
 
-import jdk.javadoc.internal.doclets.toolkit.util.DocFile;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.JavascriptExecutor;
 import java.util.Set;
 
 public class EngInterviewsPage {
@@ -22,7 +19,7 @@ public class EngInterviewsPage {
     @FindBy(css = "div.modal--success")
     private WebElement intMarkSuccess;
 
-    @FindBy(xpath = "/html/body/modal-container/div/div/app-modal-content/div/div[1]/img")
+    @FindBy(css = "body.'modal-open'")
     private WebElement closeModal;
 
     @FindBy(linkText = "Open CV")

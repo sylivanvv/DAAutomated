@@ -30,6 +30,10 @@ public class EditProfilePage {
     @FindBy(css = "button[type='submit']")
     private WebElement submitBtn;
 
+    @FindBy(css = "body.'modal-open'")
+    private WebElement modal;
+
+
     public  MyProfilePage editProfile(String photopath, String firstname, String lastname,
                                       String city, String skype){
         photoInput.sendKeys(photopath);
@@ -46,6 +50,9 @@ public class EditProfilePage {
         return new MyProfilePage(driver);
     }
 
+    public Boolean getTestResult(){
+        return this.modal.isDisplayed();
+    }
     public EditProfilePage(WebDriver driver){
         PageFactory.initElements(driver, this);
         this.driver = driver;

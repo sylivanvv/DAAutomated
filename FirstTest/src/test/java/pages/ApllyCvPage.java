@@ -74,6 +74,7 @@ public class ApllyCvPage {
     public  Boolean getAlert(){
         return this.alert.isDisplayed();
     }
+
     public EventsPage fillApplyForm(String photopath, String firstname, String lastname, String skype,
                                      String bday,
                                      String bmonth,

@@ -10,21 +10,21 @@ public class LecturesPage {
     private WebDriver driver;
 
     @FindBy(css = "div.dx-datagrid-group-closed")
-    private WebElement lecture_expand_td;
+    private WebElement lectureExpand_td;
 
     @FindBy(css = "input[type='file']")
     private WebElement selectFilePath;
 
     @FindBy(css = "span.dx-datagrid-nodata")
-    private WebElement lecture_nodata;
+    private WebElement lectureNodata;
 
     public LecturesPage selectLectureFile(String lecturepath){
-        lecture_expand_td.click();
+        lectureExpand_td.click();
         selectFilePath.sendKeys(lecturepath);
         return new LecturesPage(driver);
     }
     public String getLectureAlert(){
-        return this.lecture_nodata.getText();
+        return this.lectureNodata.getText();
     }
 
     public LecturesPage(WebDriver driver){

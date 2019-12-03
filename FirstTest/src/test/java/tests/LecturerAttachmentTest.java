@@ -1,14 +1,12 @@
 package tests;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pages.MainPage;
 import pages.LoginPage;
 import pages.LecturesPage;
 
@@ -17,7 +15,6 @@ import java.util.concurrent.TimeUnit;
 
 public class LecturerAttachmentTest {
     private LoginPage loginPage;
-    private MainPage mainPage;
     private LecturesPage lecturesPage;
     private WebDriver driver;
 
@@ -36,6 +33,7 @@ public class LecturerAttachmentTest {
     public void tearDown(){
         driver.quit();
     }
+
     @DataProvider
     public Object[][] addLecturesData() {
         return new Object[][] {

@@ -1,15 +1,12 @@
 package tests;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.LoginPage;
-import pages.MainPage;
 
 import java.util.concurrent.TimeUnit;
 
@@ -33,6 +30,11 @@ public class resetPasswordTest {
                 new Object[] {"v.salivan13@gmail.com"}
 
         };
+    }
+
+    @AfterClass
+    public void tearDown(){
+        driver.quit();
     }
 
     @Test(dataProvider = "resetPassword")

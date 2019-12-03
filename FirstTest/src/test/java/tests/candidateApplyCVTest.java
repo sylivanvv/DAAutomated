@@ -3,20 +3,17 @@ package tests;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.ApllyCvPage;
-import pages.MainPage;
-import pages.LecturesPage;
 import pages.LoginPage;
 
 import java.util.concurrent.TimeUnit;
 
 public class candidateApplyCVTest {
     private LoginPage loginPage;
-    private MainPage mainPage;
-    private LecturesPage lecturesPage;
     private ApllyCvPage apllyCvPage;
     private WebDriver driver;
 
@@ -41,6 +38,12 @@ public class candidateApplyCVTest {
 
         };
     }
+
+    @AfterClass
+    public void tearDown(){
+        driver.quit();
+    }
+
     @Test(dataProvider = "CVData")
     public void addLectures(String phothPath, String firstName, String lastName,
                             String skype, String bDay, String bMonth,
@@ -59,7 +62,7 @@ public class candidateApplyCVTest {
                          edustartyear,  eduendmonth,
                          eduendyear,  langlvl);
         Boolean alert = apllyCvPage.getAlert();
-        Assert.assertTrue(alert,  "CV wasn't uploaded");
+        Assert.assertFalse(alert,  "CV wasn't uploaded");
 
     }
 }

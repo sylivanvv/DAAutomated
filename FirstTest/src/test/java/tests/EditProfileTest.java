@@ -3,6 +3,7 @@ package tests;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -12,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 public class EditProfileTest {
     private LoginPage loginPage;
-    private MyProfilePage myProfilePage;
+    private EditProfilePage editProfilePage;
     private WebDriver driver;
 
     @BeforeClass
@@ -24,7 +25,7 @@ public class EditProfileTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         loginPage = new LoginPage(driver);
-        myProfilePage = new MyProfilePage(driver);
+        editProfilePage = new EditProfilePage(driver);
     }
 
     @DataProvider
@@ -36,6 +37,11 @@ public class EditProfileTest {
         };
     }
 
+    @AfterClass
+    public void tearDown(){
+        driver.quit();
+    }
+
     @Test(dataProvider = "editProfileData")
     public void addLectures(String email, String password, String photoPath, String firstName, String lastName,
                             String city, String skype){
@@ -45,6 +51,8 @@ public class EditProfileTest {
                 .clickMyProfile()
                 .clickeditProfile()
                 .editProfile(photoPath, firstName, lastName, city, skype);
+        Boolean testResult = editProfilePage.getTestResult();
+        Assert.assertTrue(testResult);
 
     }
 }
