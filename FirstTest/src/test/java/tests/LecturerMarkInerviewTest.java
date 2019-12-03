@@ -4,14 +4,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pages.CheckHwPage;
 import pages.EngInterviewsPage;
 import pages.LoginPage;
 
 import java.util.concurrent.TimeUnit;
 
-public class LecturerMarkInerview {
+public class LecturerMarkInerviewTest {
     LoginPage loginPage;
     EngInterviewsPage engInterviewsPage;
     WebDriver driver;
@@ -28,11 +28,17 @@ public class LecturerMarkInerview {
         engInterviewsPage = new EngInterviewsPage(driver);
     }
 
+    @DataProvider
+    public Object[][] markInterviewData() {
+        return new Object[][] {
+                new Object[] {"5", "lectureranton@mailinator.com", "QASchool2019!"}
+        };
+    }
 
-    @Test
-    public void testLogin(){
-        String expectedMark = "5";
-        loginPage.login("lectureranton@mailinator.com", "QASchool2019!")
+
+    @Test(dataProvider = "markInterviewData")
+    public void markInterview(String expectedMark, String email, String password){
+        loginPage.login(email, password)
                 .clickUserMenu()
                 .clickMyEngInt()
                 .putMark(expectedMark);

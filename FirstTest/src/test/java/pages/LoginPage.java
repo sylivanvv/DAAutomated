@@ -22,13 +22,13 @@ public class LoginPage {
     private WebElement user_nav;
 
     @FindBy(linkText = "Forgot Your Password?")
-    private WebElement resetPassLink;
+    private WebElement resetPasswordLink;
 
     public LoginPage(WebDriver driver){
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
-    public WebElement get_user_nav(){
+    public WebElement getUserNav(){
         return this.user_nav;
     }
 
@@ -38,8 +38,8 @@ public class LoginPage {
         submitButton.click();
         return new MainPage(driver);
     }
-    public ResetPasswordPage clickForgotPass(){
-        resetPassLink.click();
+    public ResetPasswordPage clickForgotPassword(){
+        resetPasswordLink.click();
         return new ResetPasswordPage(driver);
     }
 

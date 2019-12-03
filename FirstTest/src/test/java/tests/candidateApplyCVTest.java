@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.ApllyCvPage;
 import pages.MainPage;
@@ -31,16 +32,32 @@ public class candidateApplyCVTest {
         apllyCvPage = new ApllyCvPage(driver);
     }
 
-    @Test
-    public void addLectures(){
+    @DataProvider
+    public Object[][] CVData() {
+        return new Object[][] {
+                new Object[] {"C:\\Users\\OLEKSA\\Documents\\GitHub\\DAAutomated\\FirstTest\\src\\lib\\photo.jpg",
+                        "Volodymyr", "Sylivanov", "sylivanvv", "22", "October", "1999", "Kherson", "qwerty2019",
+                        "Student", "KSU", "Qwerty", "May", "2001", "May", "2004", "Native"}
+
+        };
+    }
+    @Test(dataProvider = "CVData")
+    public void addLectures(String phothPath, String firstName, String lastName,
+                            String skype, String bDay, String bMonth,
+                            String bYear, String city, String goal, String eduLevel, String institution,
+                            String spec, String edustartmonth,
+                            String edustartyear, String eduendmonth,
+                            String eduendyear, String langlvl){
+
         loginPage.login("sergey2019@mailinator.com", "QASchool2019!")
                 .clickEventDetails()
                 .applyCv()
-                .fillApplyForm("C:\\Users\\OLEKSA\\Desktop\\da\\FirstTest\\src\\lib\\photo.jpg",
-                "Volodymyr", "Sylivanov","qwerty", "22",
-                "October", "1999",  "Kherson", "qwerty2019", "Student",
-                "KSU", "Qwerty", "May", "2001", "May",
-                "2004", "Native");
+                .fillApplyForm(phothPath,  firstName,  lastName,
+                         skype,  bDay,  bMonth,
+                         bYear,  city,  goal,  eduLevel,  institution,
+                         spec,  edustartmonth,
+                         edustartyear,  eduendmonth,
+                         eduendyear,  langlvl);
         Boolean alert = apllyCvPage.getAlert();
         Assert.assertTrue(alert,  "CV wasn't uploaded");
 

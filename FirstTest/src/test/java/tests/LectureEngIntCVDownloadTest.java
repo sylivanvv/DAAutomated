@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.EngInterviewsPage;
 import pages.LoginPage;
@@ -30,11 +31,16 @@ public class LectureEngIntCVDownloadTest {
         String MainWindow=driver.getWindowHandle();
         engInterviewsPage = new EngInterviewsPage(driver);
     }
+    @DataProvider
+    public Object[][] englishCVData() {
+        return new Object[][] {
+                new Object[] {"lectureranton@mailinator.com", "QASchool2019!"}
+        };
+    }
 
-
-    @Test
-    public void testLogin(){
-        loginPage.login("lectureranton@mailinator.com", "QASchool2019!")
+    @Test(dataProvider = "englishCVData")
+    public void testLogin(String email, String password){
+        loginPage.login(email, password)
                 .clickUserMenu()
                 .clickMyEngInt()
                 .clickOpenCV()

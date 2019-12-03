@@ -1,21 +1,19 @@
 package tests;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pages.CheckHwPage;
+import pages.CheckHomeworkPage;
 import pages.LoginPage;
-import pages.MainPage;
 
 import java.util.concurrent.TimeUnit;
 
 public class LecturesPutMarksTest {
         LoginPage loginPage;
-        CheckHwPage checkHwPage;
+        CheckHomeworkPage checkHomeworkPage;
         WebDriver driver;
 
         @BeforeClass
@@ -27,19 +25,25 @@ public class LecturesPutMarksTest {
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             driver.manage().window().maximize();
             loginPage = new LoginPage(driver);
-            checkHwPage = new CheckHwPage(driver);
+            checkHomeworkPage = new CheckHomeworkPage(driver);
+        }
+        @DataProvider
+        public Object[][] putMarkData() {
+            return new Object[][] {
+                    new Object[] {"5", "lectureralexey@mailinator.com", "QASchool2019!"}
+            };
         }
 
 
-        @Test
-        public void testLogin(){
-            String expectedMark = "5";
-            loginPage.login("lectureralexey@mailinator.com", "QASchool2019!")
+
+        @Test(dataProvider = "putMarkData")
+        public void putMark(String mark, String email, String password){
+            loginPage.login(email, password)
             .clickEventDetails()
-            .checkHw()
-            .putMarks(expectedMark);
-            String mark = checkHwPage.getMark();
-            Assert.assertEquals(mark, expectedMark, "Mark wasn't changed");
+            .checkHomework()
+            .putMarks(mark);
+            String editedMark = checkHomeworkPage.getMark();
+            Assert.assertEquals(editedMark, mark, "Mark wasn't changed");
         }
 
 

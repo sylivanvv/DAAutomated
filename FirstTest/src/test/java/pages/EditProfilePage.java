@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -40,7 +41,8 @@ public class EditProfilePage {
         cityInput.sendKeys(city);
         skypeInput.clear();
         skypeInput.sendKeys(skype);
-        submitBtn.click();
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeAsyncScript("arguments[0].click();", submitBtn);
         return new MyProfilePage(driver);
     }
 

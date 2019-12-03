@@ -11,10 +11,11 @@ public class ResetPasswordPage {
 
     @FindBy(id = "login")
     private WebElement emailInput;
+
     @FindBy(css = "button[type='submit")
     private WebElement sendResetLink;
 
-    public LoginPage resetPass(String email){
+    public LoginPage resetPassword(String email){
         emailInput.sendKeys(email);
         sendResetLink.click();
         return new LoginPage(driver);

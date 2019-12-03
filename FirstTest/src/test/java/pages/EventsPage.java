@@ -11,9 +11,9 @@ public class EventsPage {
 
     private WebDriver driver;
 
-
     @FindBy(css = "div[class='event-control'] a")
     private WebElement applyCvLink;
+
     @FindBy(linkText = "Check homeworks")
     private WebElement checkHwbtn;
 
@@ -21,10 +21,10 @@ public class EventsPage {
         applyCvLink.click();
         return new ApllyCvPage(driver);
     }
-    public CheckHwPage checkHw(){
+    public CheckHomeworkPage checkHomework(){
         JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeAsyncScript("arguments[0].click();", checkHwbtn);
-        return new CheckHwPage(driver);
+        return new CheckHomeworkPage(driver);
     }
     public EventsPage(WebDriver driver){
         PageFactory.initElements(driver, this);

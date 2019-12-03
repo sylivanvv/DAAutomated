@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.MainPage;
@@ -26,10 +27,18 @@ public class resetPasswordTest {
         loginPage = new LoginPage(driver);
     }
 
-    @Test
-    public void testLogin(){
-        loginPage.clickForgotPass()
-        .resetPass("v.salivan13@gmail.com");
+    @DataProvider
+    public Object[][] resetPassword() {
+        return new Object[][] {
+                new Object[] {"v.salivan13@gmail.com"}
+
+        };
+    }
+
+    @Test(dataProvider = "resetPassword")
+    public void testLogin(String email){
+        loginPage.clickForgotPassword()
+        .resetPassword(email);
     }
 
 

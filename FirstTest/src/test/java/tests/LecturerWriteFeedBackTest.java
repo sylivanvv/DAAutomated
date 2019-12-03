@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.TechInterviewsPage;
 import pages.LecturesPage;
@@ -31,16 +32,22 @@ public class LecturerWriteFeedBackTest {
         techInterviewsPage = new TechInterviewsPage(driver);
     }
 
-    @Test
-    public void editFeedback(){
-        String fb = "Hello, I am a robot!";
-        loginPage.login("lectureranton@mailinator.com", "QASchool2019!")
+    @DataProvider
+    public Object[][] putFeedback() {
+        return new Object[][] {
+                new Object[] {"Hello, I am a robot!", "lectureranton@mailinator.com", "QASchool2019!"}
+        };
+    }
+
+    @Test(dataProvider = "putFeedback")
+    public void editFeedback(String feedback, String email, String password){
+        loginPage.login(email, password)
                 .clickUserMenu()
                 .clickMyTechInt()
                 .showFB()
-                .editFb(fb);
+                .editFb(feedback);
         String editedFb = techInterviewsPage.getEditedFb();
-        Assert.assertEquals(fb, editedFb, "FeedBack wasn't changed");
+        Assert.assertEquals(feedback, editedFb, "FeedBack wasn't changed");
 
     }
 

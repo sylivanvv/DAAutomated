@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.RegistrationPage;
 import pages.MainPage;
@@ -23,18 +24,22 @@ public class RegistrationTest {
         driver.manage().window().maximize();
         registrationPage = new RegistrationPage(driver);
     }
+
+    @DataProvider
+    public Object[][] signUpData() {
+        return new Object[][] {
+                new Object[] {"v.salivan13@gmail.com", "Volodymyr", "Sylivanov", "Qwerty1.33!", "Qwerty1.33!"}
+        };
+    }
+
     @AfterClass
     public void tearDown(){
         driver.quit();
     }
 
-
-    @Test
-    public void testSignUp(){
-        String email = "v.salivan3@gmail.com";
-        String password = "qwerty1!";
-         registrationPage.sign_up(email,
-                "Volodymyr", "Sylivanov", password, "qwerty1!")
+    @Test(dataProvider = "signUpData")
+    public void testSignUp(String email, String firstName, String lastName, String password, String cpassword){
+         registrationPage.sign_up(email, firstName, lastName, password, cpassword)
                  .login(email, password);
     }
 

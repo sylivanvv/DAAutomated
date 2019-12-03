@@ -15,7 +15,7 @@ public class RegistrationPage  {
     @FindBy(id = "first_name")
     private WebElement firstNameInput;
 
-    @FindBy(id = "LastName")
+    @FindBy(id = "last_name")
     private WebElement lastNameInput;
 
     @FindBy(id = "password")

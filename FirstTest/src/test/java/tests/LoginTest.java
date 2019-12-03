@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.MainPage;
 import pages.LoginPage;
@@ -32,11 +33,18 @@ public class LoginTest {
         driver.quit();
     }
 
-    @Test
-    public void testLogin(){
-        mainPage = loginPage.login("lectureralexey@mailinator.com", "QASchool2019!");
-        WebElement user_nav = loginPage.get_user_nav();
-        Assert.assertTrue(user_nav.isDisplayed(), "Authorisation has failed");
+    @DataProvider
+    public Object[][] signInData() {
+        return new Object[][] {
+                new Object[] {"lectureralexey@mailinator.com", "QASchool2019!"}
+        };
+    }
+
+    @Test(dataProvider = "signInData")
+    public void testLogin(String email, String password){
+        mainPage = loginPage.login(email, password);
+        WebElement userNav = loginPage.getUserNav();
+        Assert.assertTrue(userNav.isDisplayed(), "Authorisation has failed");
     }
 
 

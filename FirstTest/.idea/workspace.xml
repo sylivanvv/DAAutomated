@@ -14,7 +14,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1UQxlYebys53KuOgYVlLmPUVSyb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -28,7 +32,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
-  <component name="RunManager" selected="TestNG.LecturerMarkInerview.testLogin">
+  <component name="RunManager" selected="TestNG.EditProfileTest.addLectures">
     <configuration name="EditProfileTest.addLectures" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="FirstTest" />
       <extension name="coverage">
@@ -40,6 +44,24 @@
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.EditProfileTest" />
       <option name="METHOD_NAME" value="addLectures" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LectureEngIntCVDownloadTest.testLogin" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="FirstTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.LectureEngIntCVDownloadTest" />
+      <option name="METHOD_NAME" value="testLogin" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -65,7 +87,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LecturerMarkInerview.testLogin" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="LecturerMarkInerviewTest.markInterview" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="FirstTest" />
       <extension name="coverage">
         <pattern>
@@ -74,8 +96,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.LecturerMarkInerview" />
-      <option name="METHOD_NAME" value="testLogin" />
+      <option name="MAIN_CLASS_NAME" value="tests.LecturerMarkInerviewTest" />
+      <option name="METHOD_NAME" value="markInterview" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -83,7 +105,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LecturesPutMarksTest.testLogin" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="LecturerWriteFeedBackTest.editFeedback" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="FirstTest" />
       <extension name="coverage">
         <pattern>
@@ -92,26 +114,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.LecturesPutMarksTest" />
-      <option name="METHOD_NAME" value="testLogin" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="candidateApplyCVTest.addLectures" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="FirstTest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.candidateApplyCVTest" />
-      <option name="METHOD_NAME" value="addLectures" />
+      <option name="MAIN_CLASS_NAME" value="tests.LecturerWriteFeedBackTest" />
+      <option name="METHOD_NAME" value="editFeedback" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -121,11 +125,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.LecturerMarkInerview.testLogin" />
-        <item itemvalue="TestNG.LecturerAttachmentTest.addLectures" />
         <item itemvalue="TestNG.EditProfileTest.addLectures" />
-        <item itemvalue="TestNG.LecturesPutMarksTest.testLogin" />
-        <item itemvalue="TestNG.candidateApplyCVTest.addLectures" />
+        <item itemvalue="TestNG.LectureEngIntCVDownloadTest.testLogin" />
+        <item itemvalue="TestNG.LecturerAttachmentTest.addLectures" />
+        <item itemvalue="TestNG.LecturerMarkInerviewTest.markInterview" />
+        <item itemvalue="TestNG.LecturerWriteFeedBackTest.editFeedback" />
       </list>
     </recent_temporary>
   </component>
@@ -155,26 +159,30 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="334" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1575365322829">
+    <state x="223" y="66" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575397782158">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="334" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1575365322829" />
-    <state width="1493" height="-12" key="GridCell.Tab.0.bottom" timestamp="1575394136969">
+    <state x="223" y="66" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1575397782158" />
+    <state x="334" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1575395472621">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="-12" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1575394136969" />
-    <state width="1493" height="-12" key="GridCell.Tab.0.center" timestamp="1575394136969">
+    <state x="334" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1575395472621" />
+    <state width="1493" height="-12" key="GridCell.Tab.0.bottom" timestamp="1575400717869">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="-12" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1575394136969" />
-    <state width="1493" height="-12" key="GridCell.Tab.0.left" timestamp="1575394136969">
+    <state width="1493" height="-12" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1575400717869" />
+    <state width="1493" height="-12" key="GridCell.Tab.0.center" timestamp="1575400717869">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="-12" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1575394136969" />
-    <state width="1493" height="-12" key="GridCell.Tab.0.right" timestamp="1575394136969">
+    <state width="1493" height="-12" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1575400717869" />
+    <state width="1493" height="-12" key="GridCell.Tab.0.left" timestamp="1575400717869">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="-12" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1575394136969" />
+    <state width="1493" height="-12" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1575400717869" />
+    <state width="1493" height="-12" key="GridCell.Tab.0.right" timestamp="1575400717869">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="-12" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1575400717869" />
     <state width="1493" height="239" key="GridCell.Tab.1.bottom" timestamp="1575390478028">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

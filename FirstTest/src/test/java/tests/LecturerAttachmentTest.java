@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.MainPage;
 import pages.LoginPage;
@@ -35,13 +36,20 @@ public class LecturerAttachmentTest {
     public void tearDown(){
         driver.quit();
     }
+    @DataProvider
+    public Object[][] addLecturesData() {
+        return new Object[][] {
+                new Object[] {"C:\\Users\\OLEKSA\\Documents\\GitHub\\DAAutomated\\FirstTest\\src\\lib\\lecture.pptx",
+                        "lectureranton@mailinator.com", "QASchool2019!"}
+        };
+    }
 
-    @Test
-    public void addLectures(){
-        loginPage.login("lectureranton@mailinator.com", "QASchool2019!")
+    @Test(dataProvider = "addLecturesData")
+    public void addLectures(String filePath, String email, String password){
+        loginPage.login(email, password)
                 .clickUserMenu()
                 .clickMyLectures()
-                .selectLectureFile("C:\\Users\\OLEKSA\\Desktop\\da\\FirstTest\\src\\lib\\lecture.pptx");
+                .selectLectureFile(filePath);
         String lectures_alert = lecturesPage.getLectureAlert();
         Assert.assertNotEquals(lectures_alert, "No data", "Lectures wasn't updated");
     }

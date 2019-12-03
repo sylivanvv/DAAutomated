@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.*;
 
@@ -26,19 +27,24 @@ public class EditProfileTest {
         myProfilePage = new MyProfilePage(driver);
     }
 
-    @Test
-    public void addLectures(){
-        String photopath = "C:\\Users\\OLEKSA\\Desktop\\da\\FirstTest\\src\\lib\\photo.jpg";
-        String firstname = "John";
-        String lastname = "Doe";
-        String phonumber = "94567890";
-        String city = "Kherson";
-        String skype = "johndoe";
-        loginPage.login("sergey2019@mailinator.com", "QASchool2019!")
+    @DataProvider
+    public Object[][] editProfileData() {
+        return new Object[][] {
+                new Object[] {"lectureranton@mailinator.com", "QASchool2019!",
+                        "C:\\Users\\OLEKSA\\Documents\\GitHub\\DAAutomated\\FirstTest\\src\\lib\\photo.jpg",
+                        "John", "Doe", "Kherson", "johndoe"}
+        };
+    }
+
+    @Test(dataProvider = "editProfileData")
+    public void addLectures(String email, String password, String photoPath, String firstName, String lastName,
+                            String city, String skype){
+
+        loginPage.login(email, password)
                 .clickUserMenu()
                 .clickMyProfile()
                 .clickeditProfile()
-                .editProfile(photopath, firstname, lastname, city, skype);
+                .editProfile(photoPath, firstName, lastName, city, skype);
 
     }
 }

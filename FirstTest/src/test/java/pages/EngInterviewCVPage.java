@@ -10,14 +10,14 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class EngInterviewCVPage {
 
-
     private WebDriver driver;
-
 
     @FindBy(xpath = "/html/body/app-root/div/app-candidate-cv/div/div/div/div/div/div/div[1]/div[2]/button")
     private WebElement downloadBtn;
+
     @FindBy(css = "body")
     private WebElement body;
+
     public EngInterviewsPage downloadCV(){
         downloadBtn.click();
         return new EngInterviewsPage(driver);

@@ -13,42 +13,61 @@ public class ApllyCvPage {
 
     @FindBy(css = "div[role='alert']")
     private WebElement alert;
+
     @FindBy(css = "input[type=file]")
     private WebElement photoCv;
+
     @FindBy(id = "firstName")
     private WebElement firstNameInput;
+
     @FindBy(id = "lastName")
     private WebElement lastNameInput;
+
     @FindBy(id = "phone_number")
     private WebElement phoneNumberInput;
+
     @FindBy(id = "skype")
     private WebElement skypeInput;
+
     @FindBy (css = "div[class=\"cv-select birthdate-day select-control-wrapper\"] select")
     private WebElement bDay;
+
     @FindBy (css = "div[class=\"cv-select birthdate-month select-control-wrapper\"] select")
     private WebElement bMonth;
+
     @FindBy (css = "div[class=\"cv-select birthdate-year\"] select")
     private WebElement bYear;
+
     @FindBy(id = "city")
     private WebElement cityInput;
+
     @FindBy(id = "goal")
     private WebElement goalInput;
+
     @FindBy (id = "edu_level")
     private WebElement eduLevel;
+
     @FindBy(id = "institution")
     private WebElement institutionInput;
+
     @FindBy(id = "spec")
     private WebElement specInput;
+
     @FindBy (xpath = "//*[@id=\"educations\"]/app-cv-array/div/div/app-education/div/div[4]/app-cv-datepicker/div/div[1]/select")
     private WebElement eduStartMonth;
+
     @FindBy (xpath = "//*[@id=\"educations\"]/app-cv-array/div/div/app-education/div/div[4]/app-cv-datepicker/div/div[2]/select")
     private WebElement eduStartYear;
+
     @FindBy (xpath = "//*[@id=\"educations\"]/app-cv-array/div/div/app-education/div/div[5]/app-cv-datepicker/div/div[1]/select")
     private WebElement eduSEndMonth;
+
     @FindBy (xpath = "//*[@id=\"educations\"]/app-cv-array/div/div/app-education/div/div[5]/app-cv-datepicker/div/div[2]/select")
     private WebElement eduEndYear;
+
     @FindBy(id = "lang_level")
     private WebElement langLevel;
+
     @FindBy(css = "button.cv-submit-margin")
     private WebElement submitButton;
 
