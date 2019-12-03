@@ -9,27 +9,24 @@ public class LecturesPage {
 
     private WebDriver driver;
 
-    @FindBy(css = "div[class='dx-datagrid-group-closed']")
+    @FindBy(css = "div.dx-datagrid-group-closed")
     private WebElement lecture_expand_td;
-
-    @FindBy(css = "div[class='dx-button-content']")
-    private WebElement selectFileButton;
 
     @FindBy(css = "input[type='file']")
     private WebElement selectFilePath;
 
-    @FindBy(css = "div[class='dx-scrollable-container']")
-    private WebElement lecture_container;
+    @FindBy(css = "span.dx-datagrid-nodata")
+    private WebElement lecture_nodata;
 
-    public MainPage selectLectureFile(){
+    public LecturesPage selectLectureFile(String lecturepath){
         lecture_expand_td.click();
-        selectFileButton.click();
-        selectFilePath.sendKeys("C:\\Users\\Compyter\\Desktop\\da\\FirstTest\\src\\lib\\Lecture 13 - Automation - Part2 - Remnyova.pptx");
-        return new MainPage(driver);
+        selectFilePath.sendKeys(lecturepath);
+        return new LecturesPage(driver);
     }
-    public String checkLecturesUpdates(){
-        return lecture_container.getText();
+    public String getLectureAlert(){
+        return this.lecture_nodata.getText();
     }
+
     public LecturesPage(WebDriver driver){
         PageFactory.initElements(driver, this);
         this.driver = driver;

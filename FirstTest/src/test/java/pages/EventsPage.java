@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,19 +12,23 @@ public class EventsPage {
     private WebDriver driver;
 
 
-    @FindBy(css = "div[class=\"event-control\"] a")
+    @FindBy(css = "div[class='event-control'] a")
     private WebElement applyCvLink;
+    @FindBy(linkText = "Check homeworks")
+    private WebElement checkHwbtn;
 
-    public CvPage applyCv(){
+    public ApllyCvPage applyCv(){
         applyCvLink.click();
-        return new CvPage(driver);
+        return new ApllyCvPage(driver);
     }
-
+    public CheckHwPage checkHw(){
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeAsyncScript("arguments[0].click();", checkHwbtn);
+        return new CheckHwPage(driver);
+    }
     public EventsPage(WebDriver driver){
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
-
-
 
 }

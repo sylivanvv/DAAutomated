@@ -3,6 +3,7 @@ package tests;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.RegistrationPage;
@@ -22,14 +23,19 @@ public class RegistrationTest {
         driver.manage().window().maximize();
         registrationPage = new RegistrationPage(driver);
     }
+    @AfterClass
+    public void tearDown(){
+        driver.quit();
+    }
 
 
     @Test
     public void testSignUp(){
-        mainPage = registrationPage.sign_up("v.salivan3@gmail.com", "Volodymyr", "Sylivanov", "qwerty1!", "qwerty1!");
-        Assert.assertEquals(driver.getCurrentUrl(), "https://qa2019.itschool.kherson.dataart.com/events",
-                "Page title is incorrect");
-
+        String email = "v.salivan3@gmail.com";
+        String password = "qwerty1!";
+         registrationPage.sign_up(email,
+                "Volodymyr", "Sylivanov", password, "qwerty1!")
+                 .login(email, password);
     }
 
 

@@ -32,14 +32,14 @@ public class RegistrationPage  {
         this.driver = driver;
     }
 
-    public MainPage sign_up(String email, String first_name, String last_name, String password, String cpassword){
+    public LoginPage sign_up(String email, String first_name, String last_name, String password, String cpassword){
         emailInput.sendKeys(email);
         firstNameInput.sendKeys(first_name);
         lastNameInput.sendKeys(last_name);
         passwordInput.sendKeys(password);
         confPasswordInput.sendKeys(cpassword);
         submitButton.click();
-        return new MainPage(driver);
+        return new LoginPage(driver);
 
     }
 

@@ -2,8 +2,10 @@ package tests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import pages.ApllyCvPage;
 import pages.MainPage;
 import pages.LecturesPage;
 import pages.LoginPage;
@@ -14,6 +16,7 @@ public class candidateApplyCVTest {
     private LoginPage loginPage;
     private MainPage mainPage;
     private LecturesPage lecturesPage;
+    private ApllyCvPage apllyCvPage;
     private WebDriver driver;
 
     @BeforeClass
@@ -25,6 +28,7 @@ public class candidateApplyCVTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         loginPage = new LoginPage(driver);
+        apllyCvPage = new ApllyCvPage(driver);
     }
 
     @Test
@@ -32,10 +36,13 @@ public class candidateApplyCVTest {
         loginPage.login("sergey2019@mailinator.com", "QASchool2019!")
                 .clickEventDetails()
                 .applyCv()
-                .fillApplyForm(
-                "Volodymyr", "Sylivanov", "qwerty", "22",
+                .fillApplyForm("C:\\Users\\OLEKSA\\Desktop\\da\\FirstTest\\src\\lib\\photo.jpg",
+                "Volodymyr", "Sylivanov","qwerty", "22",
                 "October", "1999",  "Kherson", "qwerty2019", "Student",
                 "KSU", "Qwerty", "May", "2001", "May",
                 "2004", "Native");
+        Boolean alert = apllyCvPage.getAlert();
+        Assert.assertTrue(alert,  "CV wasn't uploaded");
+
     }
 }

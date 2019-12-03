@@ -18,8 +18,11 @@ public class LoginPage {
     @FindBy(css = "[type='submit']")
     private WebElement submitButton;
 
-    @FindBy(css = "ul[class='navbar-nav']")
+    @FindBy(css = "ul.navbar-nav")
     private WebElement user_nav;
+
+    @FindBy(linkText = "Forgot Your Password?")
+    private WebElement resetPassLink;
 
     public LoginPage(WebDriver driver){
         PageFactory.initElements(driver, this);
@@ -28,13 +31,16 @@ public class LoginPage {
     public WebElement get_user_nav(){
         return this.user_nav;
     }
+
     public MainPage login(String email, String password){
         emailInput.sendKeys(email);
         passwordInput.sendKeys(password);
         submitButton.click();
         return new MainPage(driver);
-
     }
-
+    public ResetPasswordPage clickForgotPass(){
+        resetPassLink.click();
+        return new ResetPasswordPage(driver);
+    }
 
 }
