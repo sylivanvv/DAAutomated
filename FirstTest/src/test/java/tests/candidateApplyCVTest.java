@@ -32,7 +32,8 @@ public class candidateApplyCVTest {
     @DataProvider
     public Object[][] CVData() {
         return new Object[][] {
-                new Object[] {"C:\\Users\\OLEKSA\\Documents\\GitHub\\DAAutomated\\FirstTest\\src\\lib\\photo.jpg",
+                new Object[] {"sergey2019@mailinator.com", "QASchool2019!",
+                        "C:\\Users\\OLEKSA\\Documents\\GitHub\\DAAutomated\\FirstTest\\src\\lib\\photo.jpg",
                         "Volodymyr", "Sylivanov", "sylivanvv", "22", "October", "1999", "Kherson", "qwerty2019",
                         "Student", "KSU", "Qwerty", "May", "2001", "May", "2004", "Native"}
 
@@ -45,14 +46,14 @@ public class candidateApplyCVTest {
     }
 
     @Test(dataProvider = "CVData")
-    public void addLectures(String phothPath, String firstName, String lastName,
+    public void addLectures(String email, String password, String phothPath, String firstName, String lastName,
                             String skype, String bDay, String bMonth,
                             String bYear, String city, String goal, String eduLevel, String institution,
                             String spec, String edustartmonth,
                             String edustartyear, String eduendmonth,
                             String eduendyear, String langlvl){
 
-        loginPage.login("sergey2019@mailinator.com", "QASchool2019!")
+        loginPage.login(email, password)
                 .clickEventDetails()
                 .applyCv()
                 .fillApplyForm(phothPath,  firstName,  lastName,
